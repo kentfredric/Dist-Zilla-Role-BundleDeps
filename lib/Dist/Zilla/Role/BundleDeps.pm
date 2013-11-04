@@ -44,17 +44,8 @@ sub _bundle_alias {
   return $ns;
 }
 
-around bundle_config => sub {
-  my ( $orig, $self, $section, @rest ) = @_;
-  my $myconf;
-  for my $param (qw( phase relation )) {
-    my $field = 'bundledeps_' . $param;
-    next unless exists $section->{payload}->{$field};
-    $myconf->{$param} = delete $section->{payload}->{$field};
-  }
-  $myconf->{phase}    = 'develop'  unless exists $myconf->{phase};
-  $myconf->{relation} = 'requires' unless exists $myconf->{relation};
-  my (@config) = $self->$orig($section);
+sub _extract_plugin_prereqs {
+  my ( $self, @config ) = @_;
   require CPAN::Meta::Requirements;
   my $reqs = CPAN::Meta::Requirements->new();
   for my $item (@config) {
@@ -63,17 +54,37 @@ around bundle_config => sub {
     $version = $conf->{':version'} if exists $conf->{':version'};
     $reqs->add_string_requirement( $module, $version );
   }
-  push @config,
-    [
-    $self->_bundle_alias . '/::Role::BundleDeps',
-    'Dist::Zilla::Plugin::Prereqs',
-    {
-      '-phase'        => $myconf->{phase},
-      '-relationship' => $myconf->{relation},
-      %{ $reqs->as_string_hash }
-    }
-    ];
-  return @config;
+  return $reqs;
+}
+
+sub _create_prereq_plugin {
+  my ( $self, $reqs, $config ) = @_;
+  my $plugin_conf = { %{$config}, %{ $reqs->as_string_hash } };
+  my $prereq = [];
+  push @{$prereq}, $self->_bundle_alias . '/::Role::BundleDeps';
+  push @{$prereq}, 'Dist::Zilla::Plugin::Prereqs';
+  push @{$prereq}, $plugin_conf;
+  return $prereq;
+}
+
+sub bundledeps_defaults {
+    return {
+        -phase => 'develop',
+        -relationship => 'requires',
+    };
+}
+
+around bundle_config => sub {
+  my ( $orig, $self, $section, @rest ) = @_;
+  my $myconf = $self->bundledeps_defaults;
+  for my $param (qw( phase relationship )) {
+    my $field = 'bundledeps_' . $param;
+    next unless exists $section->{payload}->{$field};
+    $myconf->{ '-' . $param } = delete $section->{payload}->{$field};
+  }
+  my (@config) = $self->$orig($section);
+  my $reqs = $self->_extract_plugin_prereqs(@config);
+  return ( @config, $self->_create_prereq_plugin( $reqs => $myconf ) );
 };
 
 no Moose::Role;
