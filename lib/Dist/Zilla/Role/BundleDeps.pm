@@ -40,11 +40,11 @@ sub _extract_plugin_prereqs {
 sub _create_prereq_plugin {
   my ( $self, $reqs, $config ) = @_;
   my $plugin_conf = { %{$config}, %{ $reqs->as_string_hash } };
-  my $preq = [];
+  my $prereq = [];
   push @{$prereq}, $self->_bundle_alias . '/::Role::BundleDeps';
   push @{$prereq}, 'Dist::Zilla::Plugin::Prereqs';
   push @{$prereq}, $plugin_conf;
-  return $preq;
+  return $prereq;
 }
 
 around bundle_config => sub {
