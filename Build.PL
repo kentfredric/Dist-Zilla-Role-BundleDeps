@@ -31,19 +31,23 @@ my %module_build_args = (
   },
   "script_files" => [],
   "test_requires" => {
+    "Dist::Zilla::Role::PluginBundle" => 0,
     "File::Spec" => 0,
     "IO::Handle" => 0,
     "IPC::Open3" => 0,
+    "Moose" => 0,
     "Test::More" => "0.99"
   }
 );
 
 
 my %fallback_build_requires = (
+  "Dist::Zilla::Role::PluginBundle" => 0,
   "File::Spec" => 0,
   "IO::Handle" => 0,
   "IPC::Open3" => 0,
   "Module::Build" => "0.4007",
+  "Moose" => 0,
   "Test::More" => "0.99"
 );
 
