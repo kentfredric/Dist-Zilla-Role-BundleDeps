@@ -45,7 +45,7 @@ around bundle_config => sub {
   push @config,
     [
     $self->_bundle_alias . '/::Role::BundleDeps',
-    'Prereqs',
+    'Dist::Zilla::Plugin::Prereqs',
     {
       '-phase'        => $myconf->{phase},
       '-relationship' => $myconf->{relation},
