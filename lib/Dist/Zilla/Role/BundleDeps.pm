@@ -12,6 +12,7 @@ BEGIN {
 # ABSTRACT: Automatically add all plugins in a bundle as dependencies
 
 
+
 use Moose::Role;
 
 sub _bundle_alias {
@@ -82,6 +83,20 @@ version 0.001000
     with 'Dist::Zilla::Role::BundleDeps';
 
 Bam, deps appear now for all plugins returned.
+
+=head1 DESCRIPTION
+
+This role attempts to solve the problem of communicating dependencies to META.* from bundles
+in a different way.
+
+My first attempt was L<Dist::Zilla::Plugins::Prereqs::Plugins>, which added
+all values that are seen in the C<dist.ini> to dependencies.
+
+However, that was inherently limited, as the C<:version> specifier
+is lost before the plugins appear on C<< $zilla->plugins >>
+
+This Role however, can see any declarations of C<:version> your bundle advertises,
+by standing between your C<bundle_config> method and C<Dist::Zilla>
 
 =head1 AUTHOR
 
