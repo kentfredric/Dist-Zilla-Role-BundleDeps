@@ -1,0 +1,6 @@
+strict digraph Perl {
+	graph [compound=1, concentrate=1, overlap=false, rankdir=LR, ranksep=1, smoothing=triangle, splines=spline];
+	node [label="\N", shape=record, style=dotted];
+	edge [minlen=1];
+	"Dist::Zilla::Role::BundleDeps" [label="Dist::Zilla::Role::BundleDeps", shape=Mrecord, style=solid, color="#15b01a", fontsize=7, height="0.1"];
+}

@@ -51,6 +51,13 @@ These can be overridden when consuming a bundle in `dist.ini`
     bundledeps_phase = runtime
     bundledeps_relationship = requires
 
+{
+    "namespace":"Dist::Zilla::Role::BundleDeps",
+    "interface":"role"
+}
+
+
+
 # LIMITATIONS
 
 If you bundle plugins with your bundle, and use those plugins in the bundle,

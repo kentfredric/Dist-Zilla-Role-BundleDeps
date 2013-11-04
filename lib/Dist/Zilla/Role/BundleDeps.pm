@@ -5,6 +5,15 @@ package Dist::Zilla::Role::BundleDeps;
 
 # ABSTRACT: Automatically add all plugins in a bundle as dependencies
 
+=begin MetaPOD::JSON v1.1.0
+
+{
+    "namespace":"Dist::Zilla::Role::BundleDeps",
+    "interface":"role"
+}
+
+=end MetaPOD::JSON
+
 =head1 SYNOPSIS
 
     package blahblahblah;
