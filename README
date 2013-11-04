@@ -28,6 +28,26 @@ DESCRIPTION
     advertises, by standing between your "bundle_config" method and
     "Dist::Zilla"
 
+METHODS
+  "bundledeps_defaults"
+    This method provides the "HashRef" of defaults to use for the generated
+    "Prereqs" section.
+
+    Because this role is intended to advertise Plugin Bundle dependencies,
+    and becuase those dependencies will be "develop" dependencies everywhere
+    other than the bundle itself, our defaults are:
+
+        {
+            -phase        => develop,
+            -relationship => requires,
+        }
+
+    These can be overridden when consuming a bundle in "dist.ini"
+
+        [@Author::MyBundle]
+        bundledeps_phase = runtime
+        bundledeps_relationship = requires
+
 LIMITATIONS
     If you bundle plugins with your bundle, and use those plugins in the
     bundle, you'll risk a self-reference problem, which may be solved in a
