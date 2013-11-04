@@ -116,7 +116,7 @@ by standing between your C<bundle_config> method and C<Dist::Zilla>
 
 This method provides the C<HashRef> of defaults to use for the generated C<Prereqs> section.
 
-Because this role is intended to advertise Plugin Bundle dependencies, and becuase those
+Because this role is intended to advertise Plugin Bundle dependencies, and because those
 dependencies will be "develop" dependencies everywhere other than the bundle itself,
 our defaults are:
 
