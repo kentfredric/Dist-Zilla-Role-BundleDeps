@@ -1,0 +1,68 @@
+NAME
+    Dist::Zilla::Role::BundleDeps - Automatically add all plugins in a
+    bundle as dependencies
+
+VERSION
+    version 0.001000
+
+SYNOPSIS
+        package blahblahblah;
+        use Moose;
+        ...
+        with 'Dist::Zilla::Role::PluginBundle';
+        with 'Dist::Zilla::Role::BundleDeps';
+
+    Dependencies appear now for all plugins returned.
+
+DESCRIPTION
+    This role attempts to solve the problem of communicating dependencies to
+    META.* from bundles in a different way.
+
+    My first attempt was "[Prereqs::Plugins]", which added all values that
+    are seen in the "dist.ini" to dependencies.
+
+    However, that was inherently limited, as the ":version" specifier is
+    lost before the plugins appear on "$zilla->plugins"
+
+    This Role however, can see any declarations of ":version" your bundle
+    advertises, by standing between your "bundle_config" method and
+    "Dist::Zilla"
+
+METHODS
+  "bundledeps_defaults"
+    This method provides the "HashRef" of defaults to use for the generated
+    "Prereqs" section.
+
+    Because this role is intended to advertise Plugin Bundle dependencies,
+    and because those dependencies will be "develop" dependencies everywhere
+    other than the bundle itself, our defaults are:
+
+        {
+            -phase        => develop,
+            -relationship => requires,
+        }
+
+    These can be overridden when consuming a bundle in "dist.ini"
+
+        [@Author::MyBundle]
+        bundledeps_phase = runtime
+        bundledeps_relationship = requires
+
+LIMITATIONS
+    If you bundle plugins with your bundle, and use those plugins in the
+    bundle, you'll risk a self-reference problem, which may be solved in a
+    future release of Dist::Zilla.
+
+    Until then, you'll need to possibly use "[RemovePrereqs]" to trim
+    self-references.
+
+AUTHOR
+    Kent Fredric <kentfredric@gmail.com>
+
+COPYRIGHT AND LICENSE
+    This software is copyright (c) 2013 by Kent Fredric
+    <kentfredric@gmail.com>.
+
+    This is free software; you can redistribute it and/or modify it under
+    the same terms as the Perl 5 programming language system itself.
+
