@@ -1,0 +1,26 @@
+NAME
+    Dist::Zilla::Role::BundleDeps - Automatically add all plugins in a
+    bundle as dependencies
+
+VERSION
+    version 0.001000
+
+SYNOPSIS
+        package blahblahblah;
+        use Moose;
+        ...
+        with 'Dist::Zilla::Role::PluginBundle';
+        with 'Dist::Zilla::Role::BundleDeps';
+
+    Bam, deps appear now for all plugins returned.
+
+AUTHOR
+    Kent Fredric <kentfredric@gmail.com>
+
+COPYRIGHT AND LICENSE
+    This software is copyright (c) 2013 by Kent Fredric
+    <kentfredric@gmail.com>.
+
+    This is free software; you can redistribute it and/or modify it under
+    the same terms as the Perl 5 programming language system itself.
+
