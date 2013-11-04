@@ -31,6 +31,14 @@ is lost before the plugins appear on C<< $zilla->plugins >>
 This Role however, can see any declarations of C<:version> your bundle advertises,
 by standing between your C<bundle_config> method and C<Dist::Zilla>
 
+=head1 LIMITATIONS
+
+If you bundle plugins with your bundle, and use those plugins in the bundle,
+you'll risk a self-reference problem, which may be solved in a future release of Dist::Zilla.
+
+Until then, you'll need to possibly use L<< C<[RemovePrereqs]>|Dist::Zilla::Plugin::RemovePrereqs >>
+to trim self-references.
+
 =cut
 
 use Moose::Role;
@@ -68,10 +76,10 @@ sub _create_prereq_plugin {
 }
 
 sub bundledeps_defaults {
-    return {
-        -phase => 'develop',
-        -relationship => 'requires',
-    };
+  return {
+    -phase        => 'develop',
+    -relationship => 'requires',
+  };
 }
 
 around bundle_config => sub {
