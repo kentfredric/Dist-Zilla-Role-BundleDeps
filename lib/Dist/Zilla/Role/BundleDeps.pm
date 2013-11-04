@@ -131,6 +131,16 @@ These can be overridden when consuming a bundle in C<dist.ini>
     bundledeps_phase = runtime
     bundledeps_relationship = requires
 
+=begin MetaPOD::JSON v1.1.0
+
+{
+    "namespace":"Dist::Zilla::Role::BundleDeps",
+    "interface":"role"
+}
+
+
+=end MetaPOD::JSON
+
 =head1 LIMITATIONS
 
 If you bundle plugins with your bundle, and use those plugins in the bundle,
