@@ -29,6 +29,10 @@ requires:
   perl: 5.006
   strict: 0
   warnings: 0
+resources:
+  bugtracker: https://github.com/kentfredric/Dist-Zilla-Role-BundleDeps/issues
+  homepage: https://github.com/kentfredric/Dist-Zilla-Role-BundleDeps
+  repository: https://github.com/kentfredric/Dist-Zilla-Role-BundleDeps.git
 version: 0.001000
 x_BuiltWith:
   modules:

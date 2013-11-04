@@ -28,6 +28,14 @@ DESCRIPTION
     advertises, by standing between your "bundle_config" method and
     "Dist::Zilla"
 
+LIMITATIONS
+    If you bundle plugins with your bundle, and use those plugins in the
+    bundle, you'll risk a self-reference problem, which may be solved in a
+    future release of Dist::Zilla.
+
+    Until then, you'll need to possibly use "[RemovePrereqs]" to trim
+    self-references.
+
 AUTHOR
     Kent Fredric <kentfredric@gmail.com>
 
