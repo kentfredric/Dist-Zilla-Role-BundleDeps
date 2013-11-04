@@ -75,6 +75,27 @@ sub _create_prereq_plugin {
   return $prereq;
 }
 
+=method C<bundledeps_defaults>
+
+This method provides the C<HashRef> of defaults to use for the generated C<Prereqs> section.
+
+Because this role is intended to advertise Plugin Bundle dependencies, and because those
+dependencies will be "develop" dependencies everywhere other than the bundle itself,
+our defaults are:
+
+    {
+        -phase        => develop,
+        -relationship => requires,
+    }
+
+These can be overridden when consuming a bundle in C<dist.ini>
+
+    [@Author::MyBundle]
+    bundledeps_phase = runtime
+    bundledeps_relationship = requires
+
+=cut
+
 sub bundledeps_defaults {
   return {
     -phase        => 'develop',
@@ -88,7 +109,7 @@ around bundle_config => sub {
   for my $param (qw( phase relationship )) {
     my $field = 'bundledeps_' . $param;
     next unless exists $section->{payload}->{$field};
-    $myconf->{ '-' . $param } = delete $section->{payload}->{$field};
+    $myconf->{ q[-] . $param } = delete $section->{payload}->{$field};
   }
   my (@config) = $self->$orig($section);
   my $reqs = $self->_extract_plugin_prereqs(@config);
