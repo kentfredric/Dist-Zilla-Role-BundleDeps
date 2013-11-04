@@ -18,7 +18,7 @@ use Moose::Role;
 sub _bundle_alias {
   my ($self) = @_;
   my $ns = $self->meta->name;
-  if ( $ns =~ /^Dist::Zilla::PluginBundle::(.*$)/ ) {
+  if ( $ns =~ /\ADist::Zilla::PluginBundle::(.*\z)/msx ) {
     return q[@] . $1;
   }
   return $ns;
@@ -82,14 +82,14 @@ version 0.001000
     with 'Dist::Zilla::Role::PluginBundle';
     with 'Dist::Zilla::Role::BundleDeps';
 
-Bam, deps appear now for all plugins returned.
+Dependencies appear now for all plugins returned.
 
 =head1 DESCRIPTION
 
 This role attempts to solve the problem of communicating dependencies to META.* from bundles
 in a different way.
 
-My first attempt was L<Dist::Zilla::Plugins::Prereqs::Plugins>, which added
+My first attempt was L<< C<[Prereqs::Plugins]>|Dist::Zilla::Plugins::Prereqs::Plugins >>, which added
 all values that are seen in the C<dist.ini> to dependencies.
 
 However, that was inherently limited, as the C<:version> specifier
