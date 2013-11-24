@@ -6,7 +6,7 @@ BEGIN {
   $Dist::Zilla::Role::BundleDeps::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Dist::Zilla::Role::BundleDeps::VERSION = '0.001000';
+  $Dist::Zilla::Role::BundleDeps::VERSION = '0.001001';
 }
 
 # ABSTRACT: Automatically add all plugins in a bundle as dependencies
@@ -84,7 +84,7 @@ Dist::Zilla::Role::BundleDeps - Automatically add all plugins in a bundle as dep
 
 =head1 VERSION
 
-version 0.001000
+version 0.001001
 
 =head1 SYNOPSIS
 

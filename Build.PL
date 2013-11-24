@@ -7,17 +7,17 @@ use Module::Build 0.3601;
 
 my %module_build_args = (
   "build_requires" => {
-    "Module::Build" => "0.4007"
+    "Module::Build" => "0.4202"
   },
   "configure_requires" => {
-    "Module::Build" => "0.4007"
+    "Module::Build" => "0.4202"
   },
   "dist_abstract" => "Automatically add all plugins in a bundle as dependencies",
   "dist_author" => [
     "Kent Fredric <kentfredric\@gmail.com>"
   ],
   "dist_name" => "Dist-Zilla-Role-BundleDeps",
-  "dist_version" => "0.001000",
+  "dist_version" => "0.001001",
   "license" => "perl",
   "module_name" => "Dist::Zilla::Role::BundleDeps",
   "recommends" => {},
@@ -32,23 +32,17 @@ my %module_build_args = (
   "script_files" => [],
   "test_requires" => {
     "Dist::Zilla::Role::PluginBundle" => 0,
-    "File::Spec" => 0,
-    "IO::Handle" => 0,
-    "IPC::Open3" => 0,
     "Moose" => 0,
-    "Test::More" => "0.99"
+    "Test::More" => "1.001002"
   }
 );
 
 
 my %fallback_build_requires = (
   "Dist::Zilla::Role::PluginBundle" => 0,
-  "File::Spec" => 0,
-  "IO::Handle" => 0,
-  "IPC::Open3" => 0,
-  "Module::Build" => "0.4007",
+  "Module::Build" => "0.4202",
   "Moose" => 0,
-  "Test::More" => "0.99"
+  "Test::More" => "1.001002"
 );
 
 

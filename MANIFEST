@@ -2,6 +2,9 @@
 .travis.yml
 Build.PL
 Changes
+Changes.deps
+Changes.deps.all
+Changes.deps.dev
 LICENSE
 MANIFEST
 META.json
@@ -24,7 +27,7 @@ maint-travis-ci/yamls/sterile.mkdn
 maint-travis-ci/yamls/sterile.yaml
 maint-travis-ci/yamls/sterile2.yaml
 perlcritic.rc
-t/00-compile.t
+t/00-compile/lib_Dist_Zilla_Role_BundleDeps_pm.t
 t/000-report-versions-tiny.t
 t/01_basic.t
 weaver.ini
