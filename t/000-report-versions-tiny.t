@@ -50,13 +50,10 @@ sub pmver {
 
 eval { $v .= pmver('CPAN::Meta::Requirements','any version') };
 eval { $v .= pmver('Dist::Zilla::Role::PluginBundle','any version') };
-eval { $v .= pmver('File::Spec','any version') };
-eval { $v .= pmver('IO::Handle','any version') };
-eval { $v .= pmver('IPC::Open3','any version') };
-eval { $v .= pmver('Module::Build','0.4007') };
+eval { $v .= pmver('Module::Build','0.4202') };
 eval { $v .= pmver('Moose','any version') };
 eval { $v .= pmver('Moose::Role','any version') };
-eval { $v .= pmver('Test::More','0.99') };
+eval { $v .= pmver('Test::More','1.001002') };
 eval { $v .= pmver('strict','any version') };
 eval { $v .= pmver('warnings','any version') };
 
