@@ -1,6 +1,8 @@
 Release history for Dist-Zilla-Role-BundleDeps
 
-0.001001 2013-11-24T15:30:11Z
+0.001001 2013-11-24T15:31:36Z
+ [00 Minor]
+ - Maint release.
 
  [Dependencies::Noteworthy]
  - use Module::Build 0.4202
