@@ -1,0 +1,27 @@
+0.001001
+ [Added / develop requires]
+ - Dist::Zilla::Plugin::Test::Compile::PerFile
+
+ [Changed / build requires]
+ - Module::Build 0.4007 → 0.4202
+
+ [Changed / configure requires]
+ - Module::Build 0.4007 → 0.4202
+
+ [Changed / develop requires]
+ - Dist::Zilla::Plugin::Authority 0 → 1.006
+ - Dist::Zilla::Plugin::MetaProvides::Package 0 → 1.14000001
+ - Dist::Zilla::Plugin::ModuleBuild 5 → 0
+ - Dist::Zilla::PluginBundle::Author::KENTNL 2.000001 → 2.004001
+
+ [Changed / test requires]
+ - Test::More 0.99 → 1.001002
+
+ [Removed / develop requires]
+ - Dist::Zilla::Plugin::Test::Compile
+
+ [Removed / test requires]
+ - File::Spec
+ - IO::Handle
+ - IPC::Open3
+
