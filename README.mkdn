@@ -4,7 +4,7 @@ Dist::Zilla::Role::BundleDeps - Automatically add all plugins in a bundle as dep
 
 # VERSION
 
-version 0.001000
+version 0.001001
 
 # SYNOPSIS
 
@@ -21,7 +21,7 @@ Dependencies appear now for all plugins returned.
 This role attempts to solve the problem of communicating dependencies to META.\* from bundles
 in a different way.
 
-My first attempt was [`[Prereqs::Plugins]`](http://search.cpan.org/perldoc?Dist::Zilla::Plugins::Prereqs::Plugins), which added
+My first attempt was [`[Prereqs::Plugins]`](https://metacpan.org/pod/Dist::Zilla::Plugins::Prereqs::Plugins), which added
 all values that are seen in the `dist.ini` to dependencies.
 
 However, that was inherently limited, as the `:version` specifier
@@ -63,7 +63,7 @@ These can be overridden when consuming a bundle in `dist.ini`
 If you bundle plugins with your bundle, and use those plugins in the bundle,
 you'll risk a self-reference problem, which may be solved in a future release of Dist::Zilla.
 
-Until then, you'll need to possibly use [`[RemovePrereqs]`](http://search.cpan.org/perldoc?Dist::Zilla::Plugin::RemovePrereqs)
+Until then, you'll need to possibly use [`[RemovePrereqs]`](https://metacpan.org/pod/Dist::Zilla::Plugin::RemovePrereqs)
 to trim self-references.
 
 # AUTHOR
