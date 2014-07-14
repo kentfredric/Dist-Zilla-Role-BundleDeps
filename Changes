@@ -1,5 +1,7 @@
 Release history for Dist-Zilla-Role-BundleDeps
 
+0.001002 2014-07-14T02:45:46Z
+
 0.001001 2013-11-24T15:32:47Z
  [00 Minor]
  - Maint release.
@@ -9,7 +11,7 @@ Release history for Dist-Zilla-Role-BundleDeps
  - use Test::More 1.001002
 
  [Dependencies::Stats]
- - Dependencies changed, see Changes.deps{,.all,.dev} for details
+ - Dependencies changed since 0.001000, see misc/*.deps* for details
  - build: ↑1
  - configure: ↑1
  - develop: +1 ↑3 ↓1 -1

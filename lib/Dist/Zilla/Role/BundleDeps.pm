@@ -2,14 +2,51 @@ use strict;
 use warnings;
 
 package Dist::Zilla::Role::BundleDeps;
-BEGIN {
-  $Dist::Zilla::Role::BundleDeps::AUTHORITY = 'cpan:KENTNL';
-}
-{
-  $Dist::Zilla::Role::BundleDeps::VERSION = '0.001001';
-}
-
+$Dist::Zilla::Role::BundleDeps::VERSION = '0.001002';
 # ABSTRACT: Automatically add all plugins in a bundle as dependencies
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -48,6 +85,26 @@ sub _create_prereq_plugin {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 sub bundledeps_defaults {
   return {
     -phase        => 'develop',
@@ -84,7 +141,7 @@ Dist::Zilla::Role::BundleDeps - Automatically add all plugins in a bundle as dep
 
 =head1 VERSION
 
-version 0.001001
+version 0.001002
 
 =head1 SYNOPSIS
 
@@ -155,7 +212,7 @@ Kent Fredric <kentfredric@gmail.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Kent Fredric <kentfredric@gmail.com>.
+This software is copyright (c) 2014 by Kent Fredric <kentfredric@gmail.com>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
