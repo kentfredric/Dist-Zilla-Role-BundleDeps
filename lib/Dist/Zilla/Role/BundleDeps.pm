@@ -1,19 +1,62 @@
+use 5.008;    # utf8
 use strict;
 use warnings;
+use utf8;
 
 package Dist::Zilla::Role::BundleDeps;
-BEGIN {
-  $Dist::Zilla::Role::BundleDeps::AUTHORITY = 'cpan:KENTNL';
-}
-{
-  $Dist::Zilla::Role::BundleDeps::VERSION = '0.001001';
-}
+
+our $VERSION = '0.002000';
 
 # ABSTRACT: Automatically add all plugins in a bundle as dependencies
 
+our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
 
-use Moose::Role;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+use Moose::Role qw( around );
 
 sub _bundle_alias {
   my ($self) = @_;
@@ -25,11 +68,11 @@ sub _bundle_alias {
 }
 
 sub _extract_plugin_prereqs {
-  my ( $self, @config ) = @_;
+  my ( undef, @config ) = @_;
   require CPAN::Meta::Requirements;
   my $reqs = CPAN::Meta::Requirements->new();
   for my $item (@config) {
-    my ( $name, $module, $conf ) = @{$item};
+    my ( undef, $module, $conf ) = @{$item};
     my $version = 0;
     $version = $conf->{':version'} if exists $conf->{':version'};
     $reqs->add_string_requirement( $module, $version );
@@ -48,6 +91,26 @@ sub _create_prereq_plugin {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 sub bundledeps_defaults {
   return {
     -phase        => 'develop',
@@ -56,7 +119,7 @@ sub bundledeps_defaults {
 }
 
 around bundle_config => sub {
-  my ( $orig, $self, $section, @rest ) = @_;
+  my ( $orig, $self, $section, ) = @_;
   my $myconf = $self->bundledeps_defaults;
   for my $param (qw( phase relationship )) {
     my $field = 'bundledeps_' . $param;
@@ -84,7 +147,7 @@ Dist::Zilla::Role::BundleDeps - Automatically add all plugins in a bundle as dep
 
 =head1 VERSION
 
-version 0.001001
+version 0.002000
 
 =head1 SYNOPSIS
 
@@ -155,7 +218,7 @@ Kent Fredric <kentfredric@gmail.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Kent Fredric <kentfredric@gmail.com>.
+This software is copyright (c) 2014 by Kent Fredric <kentfredric@gmail.com>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
