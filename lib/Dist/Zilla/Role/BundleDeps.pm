@@ -7,6 +7,8 @@ our $VERSION = '0.002000';
 
 # ABSTRACT: Automatically add all plugins in a bundle as dependencies
 
+# AUTHORITY
+
 =begin MetaPOD::JSON v1.1.0
 
 {
