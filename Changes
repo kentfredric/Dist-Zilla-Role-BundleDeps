@@ -1,12 +1,12 @@
 Release history for Dist-Zilla-Role-BundleDeps
 
-0.002000 2014-07-14T12:31:46Z
+0.002000 2014-07-14T12:33:34Z
  [Dependencies::Stats]
  - Dependencies changed since 0.001001, see misc/*.deps* for details
- - build: ↑1
- - configure: ↑1
- - develop: +7 -9 (suggests: +2 -1)
- - test: +4 ↑1 (recommends: +2)
+ - build: -1
+ - configure: +1 -1 (recommends: +1)
+ - develop: +8 -11 (suggests: +2 -1)
+ - test: +4 ↓1 (recommends: +4)
 
 0.001001 2013-11-24T15:32:47Z
  [00 Minor]
