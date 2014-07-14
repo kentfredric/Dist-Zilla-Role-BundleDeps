@@ -1,5 +1,7 @@
+use 5.008;    # utf8
 use strict;
 use warnings;
+use utf8;
 
 package Dist::Zilla::Role::BundleDeps;
 
@@ -54,7 +56,7 @@ to trim self-references.
 
 =cut
 
-use Moose::Role;
+use Moose::Role qw( around );
 
 sub _bundle_alias {
   my ($self) = @_;
@@ -66,11 +68,11 @@ sub _bundle_alias {
 }
 
 sub _extract_plugin_prereqs {
-  my ( $self, @config ) = @_;
+  my ( undef, @config ) = @_;
   require CPAN::Meta::Requirements;
   my $reqs = CPAN::Meta::Requirements->new();
   for my $item (@config) {
-    my ( $name, $module, $conf ) = @{$item};
+    my ( undef, $module, $conf ) = @{$item};
     my $version = 0;
     $version = $conf->{':version'} if exists $conf->{':version'};
     $reqs->add_string_requirement( $module, $version );
@@ -117,7 +119,7 @@ sub bundledeps_defaults {
 }
 
 around bundle_config => sub {
-  my ( $orig, $self, $section, @rest ) = @_;
+  my ( $orig, $self, $section, ) = @_;
   my $myconf = $self->bundledeps_defaults;
   for my $param (qw( phase relationship )) {
     my $field = 'bundledeps_' . $param;
