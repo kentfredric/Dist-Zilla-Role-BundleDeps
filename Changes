@@ -1,6 +1,8 @@
 Release history for Dist-Zilla-Role-BundleDeps
 
 {{$NEXT}}
+
+0.002000 2014-07-14T13:02:42Z
  [00 Major]
  - Mostly changes that might affect downstreams that work by hand.
 
