@@ -1,6 +1,13 @@
 Release history for Dist-Zilla-Role-BundleDeps
 
 {{$NEXT}}
+ [00 Major]
+ - Mostly changes that might affect downstreams that work by hand.
+
+ [01 Tooling]
+ - Switched to EUMM ( https://questhub.io/realm/perl/quest/5388cc12bbd0be5b2500011f )
+ - Toolkit Dependencies softened to recommendations.
+
  [Dependencies::Stats]
  - Dependencies changed since 0.001001, see misc/*.deps* for details
  - build: -1
