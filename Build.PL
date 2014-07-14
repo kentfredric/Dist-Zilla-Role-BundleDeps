@@ -18,7 +18,7 @@ my %module_build_args = (
     "Kent Fredric <kentfredric\@gmail.com>"
   ],
   "dist_name" => "Dist-Zilla-Role-BundleDeps",
-  "dist_version" => "0.001002",
+  "dist_version" => "0.002000",
   "license" => "perl",
   "module_name" => "Dist::Zilla::Role::BundleDeps",
   "recommends" => {},
