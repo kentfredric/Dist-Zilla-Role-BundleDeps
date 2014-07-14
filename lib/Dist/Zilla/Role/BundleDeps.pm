@@ -3,6 +3,8 @@ use warnings;
 
 package Dist::Zilla::Role::BundleDeps;
 
+our $VERSION = '0.002000';
+
 # ABSTRACT: Automatically add all plugins in a bundle as dependencies
 
 =begin MetaPOD::JSON v1.1.0
