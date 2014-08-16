@@ -20,40 +20,6 @@ our $VERSION = '0.002001';
 
 =end MetaPOD::JSON
 
-=head1 SYNOPSIS
-
-    package blahblahblah;
-    use Moose;
-    ...
-    with 'Dist::Zilla::Role::PluginBundle';
-    with 'Dist::Zilla::Role::BundleDeps';
-
-Dependencies appear now for all plugins returned.
-
-=cut
-
-=head1 DESCRIPTION
-
-This role attempts to solve the problem of communicating dependencies to META.* from bundles
-in a different way.
-
-My first attempt was L<< C<[Prereqs::Plugins]>|Dist::Zilla::Plugins::Prereqs::Plugins >>, which added
-all values that are seen in the C<dist.ini> to dependencies.
-
-However, that was inherently limited, as the C<:version> specifier
-is lost before the plugins appear on C<< $zilla->plugins >>
-
-This Role however, can see any declarations of C<:version> your bundle advertises,
-by standing between your C<bundle_config> method and C<Dist::Zilla>
-
-=head1 LIMITATIONS
-
-If you bundle plugins with your bundle, and use those plugins in the bundle,
-you'll risk a self-reference problem, which may be solved in a future release of Dist::Zilla.
-
-Until then, you'll need to possibly use L<< C<[RemovePrereqs]>|Dist::Zilla::Plugin::RemovePrereqs >>
-to trim self-references.
-
 =cut
 
 use Moose::Role qw( around );
@@ -134,3 +100,37 @@ around bundle_config => sub {
 no Moose::Role;
 
 1;
+
+=head1 SYNOPSIS
+
+    package blahblahblah;
+    use Moose;
+    ...
+    with 'Dist::Zilla::Role::PluginBundle';
+    with 'Dist::Zilla::Role::BundleDeps';
+
+Dependencies appear now for all plugins returned.
+
+=head1 DESCRIPTION
+
+This role attempts to solve the problem of communicating dependencies to META.* from bundles
+in a different way.
+
+My first attempt was L<< C<[Prereqs::Plugins]>|Dist::Zilla::Plugins::Prereqs::Plugins >>, which added
+all values that are seen in the C<dist.ini> to dependencies.
+
+However, that was inherently limited, as the C<:version> specifier
+is lost before the plugins appear on C<< $zilla->plugins >>
+
+This Role however, can see any declarations of C<:version> your bundle advertises,
+by standing between your C<bundle_config> method and C<Dist::Zilla>
+
+=head1 LIMITATIONS
+
+If you bundle plugins with your bundle, and use those plugins in the bundle,
+you'll risk a self-reference problem, which may be solved in a future release of Dist::Zilla.
+
+Until then, you'll need to possibly use L<< C<[RemovePrereqs]>|Dist::Zilla::Plugin::RemovePrereqs >>
+to trim self-references.
+
+=cut
