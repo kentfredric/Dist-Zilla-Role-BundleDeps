@@ -5,6 +5,8 @@ Release history for Dist-Zilla-Role-BundleDeps
  - CPANDAY!
  - no code changes.
  - whitespace reduced.
+ - metadata updated.
+ - tests updated.
 
  [Dependencies::Stats]
  - Dependencies changed since 0.002000, see misc/*.deps* for details
@@ -12,8 +14,14 @@ Release history for Dist-Zilla-Role-BundleDeps
  - develop: +1 (suggests: ↑1)
  - test: +1 -3 (recommends: ↑1 -1)
 
+ [Metadata]
+ - migrate to kentnl org.
+
  [Misc]
  - Improve source side POD to reduce build side whitespace.
+
+ [Tests]
+ - Updated Test::ReportPrereqs
 
 0.002000 2014-07-14T13:02:42Z
  [00 Major]
