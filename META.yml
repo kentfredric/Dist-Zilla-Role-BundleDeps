@@ -29,9 +29,9 @@ requires:
   utf8: '0'
   warnings: '0'
 resources:
-  bugtracker: https://github.com/kentfredric/Dist-Zilla-Role-BundleDeps/issues
-  homepage: https://github.com/kentfredric/Dist-Zilla-Role-BundleDeps
-  repository: https://github.com/kentfredric/Dist-Zilla-Role-BundleDeps.git
+  bugtracker: https://github.com/kentnl/Dist-Zilla-Role-BundleDeps/issues
+  homepage: https://github.com/kentnl/Dist-Zilla-Role-BundleDeps
+  repository: https://github.com/kentnl/Dist-Zilla-Role-BundleDeps.git
 version: '0.002001'
 x_BuiltWith:
   modules:
