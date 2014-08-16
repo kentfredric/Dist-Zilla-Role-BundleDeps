@@ -22,40 +22,6 @@ our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 use Moose::Role qw( around );
 
 sub _bundle_alias {
