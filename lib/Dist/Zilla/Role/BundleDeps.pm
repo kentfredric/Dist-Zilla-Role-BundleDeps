@@ -5,7 +5,7 @@ use utf8;
 
 package Dist::Zilla::Role::BundleDeps;
 
-our $VERSION = '0.002001';
+our $VERSION = '0.002002';
 
 # ABSTRACT: Automatically add all plugins in a bundle as dependencies
 
