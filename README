@@ -3,7 +3,7 @@ NAME
     bundle as dependencies
 
 VERSION
-    version 0.002001
+    version 0.002002
 
 SYNOPSIS
         package blahblahblah;
