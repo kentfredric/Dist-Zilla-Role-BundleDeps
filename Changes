@@ -18,6 +18,7 @@ Release history for Dist-Zilla-Role-BundleDeps
 
  [Metadata]
  - migrate to kentnl org.
+ - show 1x contributor
 
  [Misc]
  - Improve source side POD to reduce build side whitespace.
