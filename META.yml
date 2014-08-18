@@ -38,7 +38,7 @@ x_BuiltWith:
     CPAN::Meta: '2.142060'
     CPAN::Meta::Requirements: '2.126'
     Dist::Zilla::App::Command::bakeini: '0.001002'
-    Dist::Zilla::Plugin::Author::KENTNL::RecommendFixes: '0.002001'
+    Dist::Zilla::Plugin::Author::KENTNL::RecommendFixes: '0.002002'
     Dist::Zilla::Plugin::Authority: '1.006'
     Dist::Zilla::Plugin::AutoPrereqs: '5.020'
     Dist::Zilla::Plugin::BumpVersionAfterRelease: '0.002'
@@ -376,7 +376,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::Author::KENTNL::RecommendFixes
       name: '@Author::KENTNL/Author::KENTNL::RecommendFixes'
-      version: '0.002001'
+      version: '0.002002'
     -
       class: Dist::Zilla::Plugin::ReadmeFromPod
       name: '@Author::KENTNL/ReadmeFromPod'
