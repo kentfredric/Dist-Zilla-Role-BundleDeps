@@ -1,5 +1,21 @@
 Release history for Dist-Zilla-Role-BundleDeps
 
+0.002002 2015-05-05T22:26:50Z 2ee6cf4
+ [Dependencies::Stats]
+ - Dependencies changed since 0.002001, see misc/*.deps* for details
+ - configure: +1 (recommends: ↑1)
+ - develop: +10 ↑3 -2 (recommends: +1, suggests: ↑2)
+ - runtime: ↓1 -1
+ - test: +1 (recommends: +1 ↑1 ↓1)
+
+ [Documentation]
+ - Crossreference Dzil::Plugin::BundleInspector (Thanks Olivier Mengué/DOLMEN)
+ - Closes #1
+
+ [Metadata]
+ - show 1x contributor
+ - author = cpan
+
 0.002001 2014-08-16T02:13:11Z
  [00 Trivial]
  - CPANDAY!

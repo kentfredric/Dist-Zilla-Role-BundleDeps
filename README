@@ -1,68 +1,39 @@
-NAME
-    Dist::Zilla::Role::BundleDeps - Automatically add all plugins in a
-    bundle as dependencies
+Dist::Zilla::Role::BundleDeps
 
-VERSION
-    version 0.002001
+This role attempts to solve the problem of communicating dependencies to
+META.* from bundles in a different way.
 
-SYNOPSIS
-        package blahblahblah;
-        use Moose;
-        ...
-        with 'Dist::Zilla::Role::PluginBundle';
-        with 'Dist::Zilla::Role::BundleDeps';
+My first attempt was "[Prereqs::Plugins]", which added all values that
+are seen in the "dist.ini" to dependencies.
 
-    Dependencies appear now for all plugins returned.
+However, that was inherently limited, as the ":version" specifier is
+lost before the plugins appear on "$zilla->plugins"
 
-DESCRIPTION
-    This role attempts to solve the problem of communicating dependencies to
-    META.* from bundles in a different way.
+This Role however, can see any declarations of ":version" your bundle
+advertises, by standing between your "bundle_config" method and
+"Dist::Zilla"
 
-    My first attempt was "[Prereqs::Plugins]", which added all values that
-    are seen in the "dist.ini" to dependencies.
+INSTALLATION
 
-    However, that was inherently limited, as the ":version" specifier is
-    lost before the plugins appear on "$zilla->plugins"
+This is a Perl module distribution. It should be installed with whichever
+tool you use to manage your installation of Perl, e.g. any of
 
-    This Role however, can see any declarations of ":version" your bundle
-    advertises, by standing between your "bundle_config" method and
-    "Dist::Zilla"
+  cpanm .
+  cpan  .
+  cpanp -i .
 
-METHODS
-  "bundledeps_defaults"
-    This method provides the "HashRef" of defaults to use for the generated
-    "Prereqs" section.
+Consult http://www.cpan.org/modules/INSTALL.html for further instruction.
+Should you wish to install this module manually, the procedure is
 
-    Because this role is intended to advertise Plugin Bundle dependencies,
-    and because those dependencies will be "develop" dependencies everywhere
-    other than the bundle itself, our defaults are:
-
-        {
-            -phase        => develop,
-            -relationship => requires,
-        }
-
-    These can be overridden when consuming a bundle in "dist.ini"
-
-        [@Author::MyBundle]
-        bundledeps_phase = runtime
-        bundledeps_relationship = requires
-
-LIMITATIONS
-    If you bundle plugins with your bundle, and use those plugins in the
-    bundle, you'll risk a self-reference problem, which may be solved in a
-    future release of Dist::Zilla.
-
-    Until then, you'll need to possibly use "[RemovePrereqs]" to trim
-    self-references.
-
-AUTHOR
-    Kent Fredric <kentfredric@gmail.com>
+  perl Makefile.PL
+  make
+  make test
+  make install
 
 COPYRIGHT AND LICENSE
-    This software is copyright (c) 2014 by Kent Fredric
-    <kentfredric@gmail.com>.
 
-    This is free software; you can redistribute it and/or modify it under
-    the same terms as the Perl 5 programming language system itself.
+This software is copyright (c) 2015 by Kent Fredric
+<kentfredric@gmail.com>.
 
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
