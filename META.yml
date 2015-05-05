@@ -556,4 +556,5 @@ x_Dist_Zilla:
     version: '5.034'
 x_authority: cpan:KENTNL
 x_contributors:
+  - 'Kent Fredric <kentnl@cpan.org>'
   - 'Olivier Mengué <dolmen@cpan.org>'
