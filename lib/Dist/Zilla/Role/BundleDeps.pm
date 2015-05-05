@@ -133,4 +133,8 @@ you'll risk a self-reference problem, which may be solved in a future release of
 Until then, you'll need to possibly use L<< C<[RemovePrereqs]>|Dist::Zilla::Plugin::RemovePrereqs >>
 to trim self-references.
 
+=head1 SEE ALSO
+
+L<< C<[BundleInspector]>|Dist::Zilla::Plugin::BundleInspector >>
+
 =cut
