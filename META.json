@@ -1,7 +1,7 @@
 {
    "abstract" : "Automatically add all plugins in a bundle as dependencies",
    "author" : [
-      "Kent Fredric <kentfredric@gmail.com>"
+      "Kent Fredric <kentnl@cpan.org>"
    ],
    "dynamic_config" : 0,
    "generated_by" : "Dist::Zilla version 5.034, CPAN::Meta::Converter version 2.150001",
@@ -817,7 +817,6 @@
    },
    "x_authority" : "cpan:KENTNL",
    "x_contributors" : [
-      "Kent Fredric <kentnl@cpan.org>",
       "Olivier Mengué <dolmen@cpan.org>"
    ]
 }

@@ -1,7 +1,7 @@
 ---
 abstract: 'Automatically add all plugins in a bundle as dependencies'
 author:
-  - 'Kent Fredric <kentfredric@gmail.com>'
+  - 'Kent Fredric <kentnl@cpan.org>'
 build_requires:
   Dist::Zilla::Role::PluginBundle: '0'
   ExtUtils::MakeMaker: '0'
@@ -556,5 +556,4 @@ x_Dist_Zilla:
     version: '5.034'
 x_authority: cpan:KENTNL
 x_contributors:
-  - 'Kent Fredric <kentnl@cpan.org>'
   - 'Olivier Mengué <dolmen@cpan.org>'
