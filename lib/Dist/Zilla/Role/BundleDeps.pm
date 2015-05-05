@@ -178,13 +178,17 @@ you'll risk a self-reference problem, which may be solved in a future release of
 Until then, you'll need to possibly use L<< C<[RemovePrereqs]>|Dist::Zilla::Plugin::RemovePrereqs >>
 to trim self-references.
 
+=head1 SEE ALSO
+
+L<< C<[BundleInspector]>|Dist::Zilla::Plugin::BundleInspector >>
+
 =head1 AUTHOR
 
 Kent Fredric <kentfredric@gmail.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2014 by Kent Fredric <kentfredric@gmail.com>.
+This software is copyright (c) 2015 by Kent Fredric <kentfredric@gmail.com>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
