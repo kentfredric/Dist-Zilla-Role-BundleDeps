@@ -2,6 +2,13 @@ Release history for Dist-Zilla-Role-BundleDeps
 
 {{$NEXT}}
 
+ [Documentation]
+ - Crossreference Dzil::Plugin::BundleInspector (Thanks Olivier Mengué/DOLMEN)
+ - Closes #1
+
+ [Metadata]
+ - show 1x contributor
+
 0.002001 2014-08-16T02:13:11Z
  [00 Trivial]
  - CPANDAY!

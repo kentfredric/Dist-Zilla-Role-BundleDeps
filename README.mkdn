@@ -59,6 +59,10 @@ you'll risk a self-reference problem, which may be solved in a future release of
 Until then, you'll need to possibly use [`[RemovePrereqs]`](https://metacpan.org/pod/Dist::Zilla::Plugin::RemovePrereqs)
 to trim self-references.
 
+# SEE ALSO
+
+[`[BundleInspector]`](https://metacpan.org/pod/Dist::Zilla::Plugin::BundleInspector)
+
 # AUTHOR
 
 Kent Fredric <kentfredric@gmail.com>
