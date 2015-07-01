@@ -66,4 +66,3 @@ This file contains changes in REQUIRED dependencies for standard CPAN phases (co
  - File::Spec
  - IO::Handle
  - IPC::Open3
-

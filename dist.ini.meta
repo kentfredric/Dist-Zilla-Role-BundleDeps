@@ -16,7 +16,6 @@ mantissa          = 6
 bumpversions      = 1
 toolkit           = eumm
 toolkit_hardness  = soft
-copyfiles         = LICENSE
 srcreadme         = mkdn
 twitter_extra_hash_tags = #distzilla
 
