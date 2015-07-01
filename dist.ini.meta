@@ -17,6 +17,7 @@ bumpversions      = 1
 toolkit           = eumm
 toolkit_hardness  = soft
 copyfiles         = LICENSE
+copyfiles         = CONTRIBUTING.pod
 srcreadme         = mkdn
 twitter_extra_hash_tags = #distzilla
 
