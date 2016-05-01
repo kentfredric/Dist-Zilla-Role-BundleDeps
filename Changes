@@ -1,6 +1,10 @@
 Release history for Dist-Zilla-Role-BundleDeps
 
-0.002003 2016-05-01T03:30:24Z 480d6f1
+0.002003 2016-05-01T03:40:22Z bbd3a71
+ - No interesting changes.
+ - Packaging cleaups, useless files etc, saves 4kb. If 4kb of savings is enough for Perl to break things, its good
+   enough for me to at least justify a re-release.
+
  [Dependencies::Stats]
  - Dependencies changed since 0.002002, see misc/*.deps* for details
  - develop: +5 ↑1 -1 (suggests: ↑2)
