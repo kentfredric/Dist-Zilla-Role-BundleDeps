@@ -173,11 +173,27 @@ These can be overridden when consuming a bundle in C<dist.ini>
 
 =head1 LIMITATIONS
 
+=head2 Self References in develop_requires
+
 If you bundle plugins with your bundle, and use those plugins in the bundle,
 you'll risk a self-reference problem, which may be solved in a future release of Dist::Zilla.
 
 Until then, you'll need to possibly use L<< C<[RemovePrereqs]>|Dist::Zilla::Plugin::RemovePrereqs >>
 to trim self-references.
+
+=head2 Bootstrap problems on Bundles
+
+When using your bundle to ship itself, the use of this role can imply some confusion if the role is not installed,
+as C<dzil listdeps> will require this role present to work.
+
+It is subsequently recommended to state an explicit C<AuthorDep> in C<dist.ini> to avoid this.
+
+  [Bootstrap::lib]
+
+  [@Author::MyBundle]
+  ; authordep Dist::Zilla::Role::BundleDeps
+  bundledeps_phase          = runtime
+  bundledeps_relationship   = requires
 
 =head1 SEE ALSO
 

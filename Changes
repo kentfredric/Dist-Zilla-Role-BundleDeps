@@ -1,6 +1,6 @@
 Release history for Dist-Zilla-Role-BundleDeps
 
-0.002004 2016-05-20T22:54:54Z d7f2330
+0.002004 2016-05-20T23:07:01Z 61564cb
  - Annotate documentation  to indicate need to add authordeps on bundles. ( PR #2, thanks to Olivier Mengué )
 
  [Dependencies::Stats]
