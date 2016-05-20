@@ -76,6 +76,7 @@ sub _create_prereq_plugin {
 
 
 
+
 sub bundledeps_defaults {
   return {
     -phase        => 'develop',
@@ -156,6 +157,7 @@ our defaults are:
 These can be overridden when consuming a bundle in C<dist.ini>
 
     [@Author::MyBundle]
+    ; authordep Dist::Zilla::Role::BundleDeps
     bundledeps_phase = runtime
     bundledeps_relationship = requires
 
