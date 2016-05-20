@@ -1,6 +1,7 @@
 Release history for Dist-Zilla-Role-BundleDeps
 
 {{$NEXT}}
+ - Annotate documentation  to indicate need to add authordeps on bundles. ( PR #2, thanks to Olivier Mengué )
 
 0.002003 2016-05-01T03:40:22Z bbd3a71
  - No interesting changes.
