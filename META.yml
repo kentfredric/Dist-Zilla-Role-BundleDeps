@@ -13,7 +13,7 @@ configure_requires:
   ExtUtils::MakeMaker: '0'
   perl: '5.006'
 dynamic_config: 0
-generated_by: 'Dist::Zilla version 5.043, CPAN::Meta::Converter version 2.150001'
+generated_by: 'Dist::Zilla version 5.047, CPAN::Meta::Converter version 2.150001'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -22,7 +22,7 @@ name: Dist-Zilla-Role-BundleDeps
 provides:
   Dist::Zilla::Role::BundleDeps:
     file: lib/Dist/Zilla/Role/BundleDeps.pm
-    version: '0.002003'
+    version: '0.002004'
 requires:
   CPAN::Meta::Requirements: '0'
   Moose::Role: '0'
@@ -33,4 +33,4 @@ resources:
   bugtracker: https://github.com/kentnl/Dist-Zilla-Role-BundleDeps/issues
   homepage: https://github.com/kentnl/Dist-Zilla-Role-BundleDeps
   repository: https://github.com/kentnl/Dist-Zilla-Role-BundleDeps.git
-version: '0.002003'
+version: '0.002004'
