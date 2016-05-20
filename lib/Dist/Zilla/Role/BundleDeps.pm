@@ -4,7 +4,7 @@ use warnings;
 
 package Dist::Zilla::Role::BundleDeps;
 
-our $VERSION = '0.002003';
+our $VERSION = '0.002004';
 
 # ABSTRACT: Automatically add all plugins in a bundle as dependencies
 
@@ -23,37 +23,6 @@ our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
 use Moose::Role qw( around );
 
-sub _bundle_alias {
-  my ($self) = @_;
-  my $ns = $self->meta->name;
-  if ( $ns =~ /\ADist::Zilla::PluginBundle::(.*\z)/msx ) {
-    return q[@] . $1;
-  }
-  return $ns;
-}
-
-sub _extract_plugin_prereqs {
-  my ( undef, @config ) = @_;
-  require CPAN::Meta::Requirements;
-  my $reqs = CPAN::Meta::Requirements->new();
-  for my $item (@config) {
-    my ( undef, $module, $conf ) = @{$item};
-    my $version = 0;
-    $version = $conf->{':version'} if exists $conf->{':version'};
-    $reqs->add_string_requirement( $module, $version );
-  }
-  return $reqs;
-}
-
-sub _create_prereq_plugin {
-  my ( $self, $reqs, $config ) = @_;
-  my $plugin_conf = { %{$config}, %{ $reqs->as_string_hash } };
-  my $prereq = [];
-  push @{$prereq}, $self->_bundle_alias . '/::Role::BundleDeps';
-  push @{$prereq}, 'Dist::Zilla::Plugin::Prereqs';
-  push @{$prereq}, $plugin_conf;
-  return $prereq;
-}
 
 
 
@@ -98,6 +67,38 @@ around bundle_config => sub {
 
 no Moose::Role;
 
+sub _bundle_alias {
+  my ($self) = @_;
+  my $ns = $self->meta->name;
+  if ( $ns =~ /\ADist::Zilla::PluginBundle::(.*\z)/msx ) {
+    return q[@] . $1;
+  }
+  return $ns;
+}
+
+sub _extract_plugin_prereqs {
+  my ( undef, @config ) = @_;
+  require CPAN::Meta::Requirements;
+  my $reqs = CPAN::Meta::Requirements->new();
+  for my $item (@config) {
+    my ( undef, $module, $conf ) = @{$item};
+    my $version = 0;
+    $version = $conf->{':version'} if exists $conf->{':version'};
+    $reqs->add_string_requirement( $module, $version );
+  }
+  return $reqs;
+}
+
+sub _create_prereq_plugin {
+  my ( $self, $reqs, $config ) = @_;
+  my $plugin_conf = { %{$config}, %{ $reqs->as_string_hash } };
+  my $prereq = [];
+  push @{$prereq}, $self->_bundle_alias . '/::Role::BundleDeps';
+  push @{$prereq}, 'Dist::Zilla::Plugin::Prereqs';
+  push @{$prereq}, $plugin_conf;
+  return $prereq;
+}
+
 1;
 
 __END__
@@ -112,7 +113,7 @@ Dist::Zilla::Role::BundleDeps - Automatically add all plugins in a bundle as dep
 
 =head1 VERSION
 
-version 0.002003
+version 0.002004
 
 =head1 SYNOPSIS
 
@@ -156,6 +157,7 @@ our defaults are:
 These can be overridden when consuming a bundle in C<dist.ini>
 
     [@Author::MyBundle]
+    ; authordep Dist::Zilla::Role::BundleDeps
     bundledeps_phase = runtime
     bundledeps_relationship = requires
 
@@ -171,11 +173,27 @@ These can be overridden when consuming a bundle in C<dist.ini>
 
 =head1 LIMITATIONS
 
+=head2 Self References in develop_requires
+
 If you bundle plugins with your bundle, and use those plugins in the bundle,
 you'll risk a self-reference problem, which may be solved in a future release of Dist::Zilla.
 
 Until then, you'll need to possibly use L<< C<[RemovePrereqs]>|Dist::Zilla::Plugin::RemovePrereqs >>
 to trim self-references.
+
+=head2 Bootstrap problems on Bundles
+
+When using your bundle to ship itself, the use of this role can imply some confusion if the role is not installed,
+as C<dzil listdeps> will require this role present to work.
+
+It is subsequently recommended to state an explicit C<AuthorDep> in C<dist.ini> to avoid this.
+
+  [Bootstrap::lib]
+
+  [@Author::MyBundle]
+  ; authordep Dist::Zilla::Role::BundleDeps
+  bundledeps_phase          = runtime
+  bundledeps_relationship   = requires
 
 =head1 SEE ALSO
 

@@ -1,5 +1,12 @@
 Release history for Dist-Zilla-Role-BundleDeps
 
+0.002004 2016-05-20T23:18:11Z 7072374
+ - Annotate documentation  to indicate need to add authordeps on bundles. ( PR #2, thanks to Olivier Mengué )
+
+ [Dependencies::Stats]
+ - Dependencies changed since 0.002003, see misc/*.deps* for details
+ - configure: (suggests: +1)
+
 0.002003 2016-05-01T03:40:22Z bbd3a71
  - No interesting changes.
  - Packaging cleaups, useless files etc, saves 4kb. If 4kb of savings is enough for Perl to break things, its good

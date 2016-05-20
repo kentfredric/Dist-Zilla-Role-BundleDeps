@@ -159,7 +159,7 @@ spell_command = aspell list --lang en_US
 
 [Documentation::RequirePodAtEnd]
 
-[Documentation::RequirePodLinksIncludeText]
+[-Documentation::RequirePodLinksIncludeText]
 
 [-Documentation::RequirePodSections]
 
