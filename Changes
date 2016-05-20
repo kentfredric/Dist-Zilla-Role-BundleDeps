@@ -1,6 +1,8 @@
 Release history for Dist-Zilla-Role-BundleDeps
 
 {{$NEXT}}
+ - Annotate documentation  to indicate need to add authordeps on bundles. ( PR #2, thanks to Olivier Mengué )
+
  [Dependencies::Stats]
  - Dependencies changed since 0.002003, see misc/*.deps* for details
  - configure: (suggests: +1)
