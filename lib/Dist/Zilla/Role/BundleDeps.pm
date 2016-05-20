@@ -4,7 +4,7 @@ use warnings;
 
 package Dist::Zilla::Role::BundleDeps;
 
-our $VERSION = '0.002004';
+our $VERSION = '0.002005';
 
 # ABSTRACT: Automatically add all plugins in a bundle as dependencies
 
