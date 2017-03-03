@@ -4,7 +4,7 @@ use warnings;
 
 package Dist::Zilla::Role::BundleDeps;
 
-our $VERSION = '0.002004';
+our $VERSION = '0.002005';
 
 # ABSTRACT: Automatically add all plugins in a bundle as dependencies
 
@@ -22,38 +22,6 @@ our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
 
 use Moose::Role qw( around );
-
-sub _bundle_alias {
-  my ($self) = @_;
-  my $ns = $self->meta->name;
-  if ( $ns =~ /\ADist::Zilla::PluginBundle::(.*\z)/msx ) {
-    return q[@] . $1;
-  }
-  return $ns;
-}
-
-sub _extract_plugin_prereqs {
-  my ( undef, @config ) = @_;
-  require CPAN::Meta::Requirements;
-  my $reqs = CPAN::Meta::Requirements->new();
-  for my $item (@config) {
-    my ( undef, $module, $conf ) = @{$item};
-    my $version = 0;
-    $version = $conf->{':version'} if exists $conf->{':version'};
-    $reqs->add_string_requirement( $module, $version );
-  }
-  return $reqs;
-}
-
-sub _create_prereq_plugin {
-  my ( $self, $reqs, $config ) = @_;
-  my $plugin_conf = { %{$config}, %{ $reqs->as_string_hash } };
-  my $prereq = [];
-  push @{$prereq}, $self->_bundle_alias . '/::Role::BundleDeps';
-  push @{$prereq}, 'Dist::Zilla::Plugin::Prereqs';
-  push @{$prereq}, $plugin_conf;
-  return $prereq;
-}
 
 
 
@@ -99,6 +67,38 @@ around bundle_config => sub {
 
 no Moose::Role;
 
+sub _bundle_alias {
+  my ($self) = @_;
+  my $ns = $self->meta->name;
+  if ( $ns =~ /\ADist::Zilla::PluginBundle::(.*\z)/msx ) {
+    return q[@] . $1;
+  }
+  return $ns;
+}
+
+sub _extract_plugin_prereqs {
+  my ( undef, @config ) = @_;
+  require CPAN::Meta::Requirements;
+  my $reqs = CPAN::Meta::Requirements->new();
+  for my $item (@config) {
+    my ( undef, $module, $conf ) = @{$item};
+    my $version = 0;
+    $version = $conf->{':version'} if exists $conf->{':version'};
+    $reqs->add_string_requirement( $module, $version );
+  }
+  return $reqs;
+}
+
+sub _create_prereq_plugin {
+  my ( $self, $reqs, $config ) = @_;
+  my $plugin_conf = { %{$config}, %{ $reqs->as_string_hash } };
+  my $prereq = [];
+  push @{$prereq}, $self->_bundle_alias . '/::Role::BundleDeps';
+  push @{$prereq}, 'Dist::Zilla::Plugin::Prereqs';
+  push @{$prereq}, $plugin_conf;
+  return $prereq;
+}
+
 1;
 
 __END__
@@ -113,7 +113,7 @@ Dist::Zilla::Role::BundleDeps - Automatically add all plugins in a bundle as dep
 
 =head1 VERSION
 
-version 0.002004
+version 0.002005
 
 =head1 SYNOPSIS
 
@@ -205,7 +205,7 @@ Kent Fredric <kentnl@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2016 by Kent Fredric <kentfredric@gmail.com>.
+This software is copyright (c) 2017 by Kent Fredric <kentfredric@gmail.com>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
