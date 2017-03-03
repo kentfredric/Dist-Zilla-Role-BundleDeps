@@ -1,6 +1,8 @@
 Release history for Dist-Zilla-Role-BundleDeps
 
 {{$NEXT}}
+
+0.002005 2017-03-03T10:25:23Z a10938d
  [Bugfix]
  - Avoid test failures on 5.26 w/ -Ddefault_inc_excludes_dot
  - Closes https://github.com/kentnl/Dist-Zilla-Role-BundleDeps/issues/3
